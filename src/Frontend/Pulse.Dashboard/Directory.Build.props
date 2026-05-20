@@ -1,0 +1,7 @@
+<Project>
+  <!-- Redirect intermediate output to local /tmp when building from Linux sandbox.
+       Has no effect on Windows (Rider) builds. -->
+  <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">
+    <BaseIntermediateOutputPath>/tmp/pulse-dashboard-obj/</BaseIntermediateOutputPath>
+  </PropertyGroup>
+</Project>

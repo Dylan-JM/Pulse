@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))' == 'true'">
+    <!-- Suppress native apphost creation when building from Linux sandbox -->
+    <UseAppHost>false</UseAppHost>
+  </PropertyGroup>
+</Project>
