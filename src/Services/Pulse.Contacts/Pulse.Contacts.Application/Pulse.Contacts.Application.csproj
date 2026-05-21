@@ -8,7 +8,6 @@
     <ProjectReference Include="../Pulse.Contacts.Domain/Pulse.Contacts.Domain.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\DeleteContact\" />
     <Folder Include="Queries\GetAllContacts\" />
     <Folder Include="Queries\GetContactById\" />
   </ItemGroup>
