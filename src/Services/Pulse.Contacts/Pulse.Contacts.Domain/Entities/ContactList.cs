@@ -2,7 +2,7 @@
 
 public class ContactList
 {
-    public Guid Id { get; }
+    public Guid Id { get; private set; }
     public string Name { get; private set; }
     public List<Guid> ContactIds { get; private set; }
 

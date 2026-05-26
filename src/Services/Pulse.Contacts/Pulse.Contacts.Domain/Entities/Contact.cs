@@ -5,7 +5,7 @@ namespace Pulse.Contacts.Domain.Entities;
 
 public class Contact
 {
-    public Guid Id { get; }
+    public Guid Id { get; private set; }
     public string Name { get; private set; }
     public string? Phone { get; private set; }
     public List<string> Tags { get; private set; }

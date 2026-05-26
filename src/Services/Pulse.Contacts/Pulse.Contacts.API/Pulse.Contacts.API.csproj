@@ -8,4 +8,7 @@
     <ProjectReference Include="../Pulse.Contacts.Application/Pulse.Contacts.Application.csproj" />
     <ProjectReference Include="../Pulse.Contacts.Infrastructure/Pulse.Contacts.Infrastructure.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.7" />
+  </ItemGroup>
 </Project>

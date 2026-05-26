@@ -9,7 +9,7 @@ using Pulse.Contacts.Domain.Entities;
 namespace Pulse.Contacts.API.Controllers;
 
 [ApiController]
-[Route("api/[contacts]")]
+[Route("api/contacts")]
 public class ContactsController : ControllerBase
 {
     private readonly ISender _sender;

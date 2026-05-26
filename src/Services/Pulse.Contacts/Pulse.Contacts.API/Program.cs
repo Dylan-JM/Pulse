@@ -16,7 +16,12 @@ builder.Services.AddDbContext<ContactsDbContext>(options =>
     options.UseInMemoryDatabase("contactsDB")
 );
 
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 app.MapControllers();
+app.UseSwagger();
+app.UseSwaggerUI();
+
 app.Run();
