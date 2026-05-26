@@ -28,4 +28,10 @@ public class ContactListRepository : IContactListRepository
     {
         await _context.ContactLists.Where(c => c.Id == id).ExecuteDeleteAsync();
     }
+
+    public async Task Update(ContactList contactList)
+    {
+        _context.ContactLists.Update(contactList);
+        await _context.SaveChangesAsync();
+    }
 }
