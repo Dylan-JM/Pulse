@@ -13,7 +13,7 @@ builder.Services.AddScoped<IContactRepository, ContactRepository>();
 builder.Services.AddScoped<IContactListRepository, ContactListRepository>();
 
 builder.Services.AddDbContext<ContactsDbContext>(options =>
-    options.UseInMemoryDatabase("contactsDB")
+    options.UseSqlite("Data Source=contacts.db")
 );
 
 builder.Services.AddSwaggerGen();

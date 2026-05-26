@@ -1,4 +1,5 @@
-﻿using Pulse.Contacts.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Pulse.Contacts.Domain.Entities;
 using Pulse.Contacts.Domain.Repositories;
 
 namespace Pulse.Contacts.Infrastructure.Persistence;
@@ -25,10 +26,6 @@ public class ContactListRepository : IContactListRepository
 
     public async Task Remove(Guid id)
     {
-        var contactList = await GetById(id);
-        if (contactList is null)
-            return;
-        _context.ContactLists.Remove(contactList);
-        await _context.SaveChangesAsync();
+        await _context.ContactLists.Where(c => c.Id == id).ExecuteDeleteAsync();
     }
 }

@@ -24,4 +24,6 @@ public class Contact
         Status = ContactStatus.Active;
         EngagementScore = 0;
     }
+
+    private Contact() { }
 }

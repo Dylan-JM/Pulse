@@ -24,4 +24,6 @@ public class ContactList
     {
         ContactIds.Remove(contactId);
     }
+
+    private ContactList() { }
 }

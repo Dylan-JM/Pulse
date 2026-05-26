@@ -31,10 +31,6 @@ public class ContactRepository : IContactRepository
 
     public async Task Remove(Guid id)
     {
-        var contact = await GetById(id);
-        if (contact is null)
-            return;
-        _context.Contacts.Remove(contact);
-        await _context.SaveChangesAsync();
+        await _context.Contacts.Where(c => c.Id == id).ExecuteDeleteAsync();
     }
 }
