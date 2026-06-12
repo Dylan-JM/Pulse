@@ -1,10 +1,10 @@
 ﻿using MediatR;
-using Pulse.Contacts.Domain.Entities;
+using Pulse.Contacts.Application.DTOs;
 using Pulse.Contacts.Domain.Repositories;
 
 namespace Pulse.Contacts.Application.Queries.GetContactById;
 
-public class GetContactByIdHandler : IRequestHandler<GetContactByIdQuery, Contact?>
+public class GetContactByIdHandler : IRequestHandler<GetContactByIdQuery, ContactDto?>
 {
     private readonly IContactRepository _contactRepository;
 
@@ -13,11 +13,12 @@ public class GetContactByIdHandler : IRequestHandler<GetContactByIdQuery, Contac
         _contactRepository = contactRepository;
     }
 
-    public async Task<Contact?> Handle(
+    public async Task<ContactDto?> Handle(
         GetContactByIdQuery query,
         CancellationToken cancellationToken
     )
     {
-        return await _contactRepository.GetById(query.Id);
+        var contact = await _contactRepository.GetById(query.Id);
+        return contact is null ? null : ContactDto.FromContact(contact);
     }
 }

@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using Pulse.Contacts.Domain.Entities;
+using Pulse.Contacts.Application.DTOs;
 
 namespace Pulse.Contacts.Application.Queries.GetContactById;
 
-public class GetContactByIdQuery : IRequest<Contact>
+public class GetContactByIdQuery : IRequest<ContactDto>
 {
     public Guid Id { get; set; }
 

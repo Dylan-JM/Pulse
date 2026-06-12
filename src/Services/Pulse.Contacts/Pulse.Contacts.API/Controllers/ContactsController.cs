@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Pulse.Contacts.Application.Commands.CreateContact;
 using Pulse.Contacts.Application.Commands.DeleteContact;
+using Pulse.Contacts.Application.DTOs;
 using Pulse.Contacts.Application.Queries.GetAllContacts;
 using Pulse.Contacts.Application.Queries.GetContactById;
 using Pulse.Contacts.Domain.Entities;
@@ -20,14 +21,14 @@ public class ContactsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<List<Contact>> GetAll()
+    public async Task<List<ContactDto>> GetAll()
     {
         var contactQuery = new GetAllContactsQuery();
         return await _sender.Send(contactQuery);
     }
 
     [HttpGet("{id:guid}")]
-    public async Task<Contact> GetById(Guid id)
+    public async Task<ContactDto> GetById(Guid id)
     {
         var contactQuery = new GetContactByIdQuery(id);
         return await _sender.Send(contactQuery);
